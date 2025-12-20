@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Google Scam</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f6f8;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 420px;
+            margin: auto;
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 6px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            margin-top: 0;
+            text-align: center;
+        }
+
+        .notice {
+            font-size: 14px;
+            background: #eef2f7;
+            padding: 10px;
+            border-radius: 4px;
+            margin-bottom: 12px;
+        }
+
+        input {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 10px;
+            box-sizing: border-box;
+        }
+
+        .list-container {
+            border: 1px solid #ccc;
+            height: 220px;
+            overflow-y: auto;
+            padding: 5px;
+        }
+
+        .username {
+            padding: 6px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .submit-links {
+            margin-top: 15px;
+            text-align: center;
+        }
+
+        .submit-links a {
+            display: block;
+            margin: 6px 0;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Google Scam</h2>
+
+    <div class="notice">
+        This registry is manually reviewed.  
+        To report a scammer, submit proof via email or Discord.
+    </div>
+
+    <input
+        type="text"
+        id="searchInput"
+        placeholder="Search usernames..."
+        onkeyup="filterUsernames()"
+    >
+
+    <div class="list-container" id="userList"></div>
+
+    <div class="submit-links">
+        <a href="mailto:shadownight9261@gmail.com?subject=Google Scam Report">
+            Submit via Email
+        </a>
+        <a href="https://discord.gg/3KeBy7kY4" target="_blank">
+            Submit via Discord
+        </a>
+    </div>
+</div>
+
+<script>
+    // Curated list — update only after review
+    let usernames = [
+        "Oluthringer0411",
+        "sorizzy545",
+        "limbo6779"
+    ];
+
+    function renderList(filteredList = usernames) {
+        const list = document.getElementById("userList");
+        list.innerHTML = "";
+
+        filteredList.forEach(name => {
+            const div = document.createElement("div");
+            div.className = "username";
+            div.textContent = name;
+            list.appendChild(div);
+        });
+    }
+
+    function filterUsernames() {
+        const query = document.getElementById("searchInput").value.toLowerCase();
+        const filtered = usernames.filter(name =>
+            name.toLowerCase().includes(query)
+        );
+        renderList(filtered);
+    }
+
+    renderList();
+</script>
+
+</body>
+</html>
